@@ -3,8 +3,10 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch';
 import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
-import NumberOfEvents
- from './components/NumberOfEvents';
+import NumberOfEvents from './components/NumberOfEvents';
+
+import './App.css';
+
 const App = () => {
   const [events, setEvents] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
