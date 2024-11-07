@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import * as atatus from 'atatus-spa';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 atatus.config('1b1ee5665eb943e3bdb71259beabe47a').install();
 
@@ -11,13 +12,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 );
+serviceWorkerRegistration.register();
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, err => {
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
