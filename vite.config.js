@@ -41,5 +41,19 @@ export default defineConfig({
         "background_color": "#ffffff"
       },
       registerType: 'autoUpdate', // Automatically updates the service worker
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /\/.*\.png$/, // Example pattern for caching png images
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'images',
+              expiration: {
+                maxEntries: 50,
+              },
+            },
+          },
+        ],
+      },
     })],
 })
