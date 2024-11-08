@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: '/',
   plugins: [
     react(),
     VitePWA({
@@ -40,7 +41,9 @@ export default defineConfig({
         "theme_color": "#000000",
         "background_color": "#ffffff"
       },
-      registerType: 'autoUpdate', // Automatically updates the service worker
+      srcDir: 'src', // Update if your service-worker.js is elsewhere
+      filename: 'service-worker.js', // Ensure it's accessible in production
+      registerType: 'autoUpdate',
       workbox: {
         runtimeCaching: [
           {
